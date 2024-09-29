@@ -1,0 +1,7 @@
+{
+  "name": "orderApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
