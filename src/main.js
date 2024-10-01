@@ -4,20 +4,29 @@ import { createPinia } from 'pinia';
 import router from './router';
 
 import {
-    IonCardHeader,
-    IonContent,
-    IonicVue,
-    IonCard,
-    IonCardTitle,
-    IonCardContent,
-    IonButton,
-    IonFooter,
-    IonIcon,
-    IonItem,
-    IonLabel,
-    IonToggle,
-    IonPage,
-    IonHeader, IonButtons, IonToolbar, IonTitle, IonModal, IonTextarea, IonInput
+  IonicVue,
+  IonButton,
+  IonButtons, 
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
+  IonContent,
+  IonFooter,
+  IonHeader, 
+  IonIcon,
+  IonInput,
+  IonItem,
+  IonItemOption,
+  IonItemOptions,
+  IonItemSliding,
+  IonLabel,
+  IonModal, 
+  IonPage,
+  IonTextarea, 
+  IonTitle, 
+  IonToggle,
+  IonToolbar, 
 } from '@ionic/vue';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
@@ -55,15 +64,18 @@ const app = createApp(App)
 app.component('IonButton', IonButton);
 app.component('IonButtons', IonButtons);
 app.component('IonCard', IonCard);
-app.component('IonCardTitle', IonCardTitle);
 app.component('IonCardContent', IonCardContent);
 app.component('IonCardHeader', IonCardHeader);
+app.component('IonCardTitle', IonCardTitle);
 app.component('IonContent', IonContent);
 app.component('IonFooter', IonFooter);
 app.component('IonHeader', IonHeader);
 app.component('IonIcon', IonIcon);
 app.component('IonInput', IonInput );
 app.component('IonItem', IonItem);
+app.component('IonItemOption', IonItemOption);
+app.component('IonItemOptions', IonItemOptions);
+app.component('IonItemSliding', IonItemSliding);
 app.component('IonLabel', IonLabel);
 app.component('IonModal', IonModal);
 app.component('IonPage', IonPage);
