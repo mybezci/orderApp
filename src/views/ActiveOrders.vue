@@ -23,18 +23,27 @@
 
             <ion-item class="item-content" >
               <ion-card-content class="card-content">
-               <div class="left-section">
-                  <ion-card-title>{{ order.name }}</ion-card-title>
-                  <p >{{ order.details }}</p>
-                  <p class="warning-text">{{ order.notes }}</p>
-                </div>
 
-                <div class="right-section">
-                  <p class="order-time">{{ new Date(order.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) }}</p>
-                  <ion-button color="success" @click="completeOrder(order.id)" class="complete-button">
-                    <ion-icon slot="start" :icon="checkmark" style="font-size: 24px; margin: 0;"></ion-icon>
-                  </ion-button>
-                </div>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col size="9">
+                      <ion-card-title>{{ order.name }}</ion-card-title>
+                      <p>{{ order.details }}</p>
+                      <p class="warning-text">{{ order.notes }}</p>
+                    </ion-col>
+
+                  <!-- Tamamlama Butonu ve Saat -->
+                    <ion-col size="3" class="ion-text-right">
+                      <p class="order-time">{{ new Date(order.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) }}</p>
+                      <ion-button color="success" @click="completeOrder(order.id)" class="complete-button">
+                        <ion-icon slot="start" :icon="checkmark" style="font-size: 24px; margin: 0;"></ion-icon>
+                      </ion-button>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+
+
+                
               </ion-card-content>
             </ion-item>
 
@@ -97,61 +106,3 @@ export default {
   }
 };
 </script>
-
-<!-- <style scoped>
-
-.item-content {
-  margin: 0; 
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%; /* Card content genişliği tam genişlik */
-  border: 1px solid #ccc; /* İnce bir gri border */
-  border-radius: 5px; /* Köşe yuvarlama */
-  border-left: 5px solid green; /* Sol tarafta yeşil border */
-}
-
-.card-content {
-  margin: 0; 
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%; /* Card content genişliği tam genişlik */
-}
-
-.left-section {
-  flex: 1;
-  text-align: left;
-}
-
-.right-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.order-time {
-  font-weight: bold;
-}
-
-.complete-button {
-  height: 50px;
-  width: 50px;
-}
-
-.warning-text{
-  font-size: 14px;
-  color: red;
-}
-
-ion-item-sliding {
-  --ion-item-sliding-side-margin: 0;
-}
-
-ion-item-options {
-  width: auto;
-}
-
-</style> -->
