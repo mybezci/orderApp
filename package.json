@@ -21,8 +21,11 @@
     "@ionic/vue-router": "^8.0.0",
     "ionicons": "^7.0.0",
     "pinia": "^2.2.2",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.0.7",
     "vue": "^3.3.0",
-    "vue-router": "^4.2.0"
+    "vue-router": "^4.2.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@capacitor/cli": "6.1.2",
