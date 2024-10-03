@@ -1,0 +1,116 @@
+/* General Styles */
+body {
+  background-color: var(--ion-color-background);
+  color: var(--ion-color-text);
+}
+
+/* Card Styles */
+ion-card {
+  background-color: var(--ion-card-background);
+  border-radius: var(--ion-card-border-radius);
+}
+
+/* Button Styles */
+.complete-button {
+  height: 50px;
+  width: 50px;
+  background-color: var(--ion-button-background);
+  color: var(--ion-button-text-color);
+}
+
+/* Warning Text */
+.warning-text {
+  font-size: 14px;
+  color: var(--ion-color-warning);
+}
+
+/* Item Styles */
+.item-content {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid var(--ion-item-border-color);
+  border-radius: 5px;
+  border-left: 5px solid green;
+  --inner-padding-start: 0px;
+  --inner-padding-end: 0px;
+}
+
+.card-content {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  --padding-start: 0px;
+  --padding-end: 0px;
+}
+
+.custom-grid {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.active-left-col {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.active-right-col {
+  flex-shrink: 0;
+  width: 80px;
+  text-align: right;
+}
+
+.custom-textarea {
+  min-height: 100px;
+  max-height: 200px;
+  height: auto;
+  overflow-y: auto;
+}
+
+.order-time {
+  font-weight: bold;
+}
+
+/* Sliding Item Styles */
+ion-item-sliding {
+  --ion-item-sliding-side-margin: 0;
+}
+
+ion-item-options {
+  width: auto;
+}
+
+/* Toolbar Styles */
+ion-toolbar {
+  background-color: var(--ion-toolbar-background);
+  color: var(--ion-toolbar-color);
+}
+
+/* DataTable Styles */
+.datatable-container {
+  padding: 1rem;
+}
+
+.p-datatable .p-datatable-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.p-paginator .p-paginator-current {
+  margin-right: 1rem;
+}
+
+.button-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-header ion-button {
+  font-size: 100px;
+}
