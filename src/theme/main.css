@@ -44,17 +44,27 @@ body {
     width: 100%; /* Card content genişliği tam genişlik */
   }
   
-  .left-section {
-    flex: 1;
-    text-align: left;
+
+  .active-left-col {
+    flex-grow: 1; /* Sol kolunun genişlemesini sağlar */
+    min-width: 0; /* Taşma problemini önlemek için gerekli */
   }
   
-  .right-section {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+  .active-right-col {
+    flex-shrink: 0; /* Sağ kolun genişliği sabit kalır */
+    width: 80px; /* Sağdaki kolonun sabit genişliği */
+    text-align: right;
   }
-  
+
+
+  .custom-textarea {
+    min-height: 100px; /* Minimum yükseklik */
+    max-height: 200px; /* Maksimum yükseklik */
+    height: auto; /* İçeriğe göre otomatik yüksekliği ayarla */
+    overflow-y: auto; /* Taşan içerik için kaydırma çubuğu ekle */
+  }
+
+
   .order-time {
     font-weight: bold;
   }

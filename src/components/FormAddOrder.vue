@@ -11,13 +11,13 @@
 
     <ion-content class="ion-padding">
       <ion-item>
-        <ion-input placeholder="Siparis" v-model="newOrder.name" @input="validateOrder" required></ion-input>
+        <ion-textarea class="custom-textarea" placeholder="Siparis" v-model="newOrder.name" @input="validateOrder" required></ion-textarea>
       </ion-item>
       <ion-item>
-        <ion-input  placeholder="Nereye" v-model="newOrder.details"></ion-input>
+        <ion-textarea class="custom-textarea" placeholder="Nereye" v-model="newOrder.details"></ion-textarea>
       </ion-item>
       <ion-item>
-        <ion-textarea  placeholder="Notlar" v-model="newOrder.notes"></ion-textarea>
+        <ion-textarea class="custom-textarea" placeholder="Notlar" v-model="newOrder.notes"></ion-textarea>
       </ion-item>
 
       <ion-button expand="full" @click="addNewOrder" :disabled="!canAddOrder">Ekle</ion-button>
