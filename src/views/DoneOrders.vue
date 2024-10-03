@@ -14,17 +14,17 @@
           <ion-item-sliding>
             <ion-item>
               <ion-card-content>
-                <p>{{ order.name }}</p>
+                <ion-card-title>{{ order.name }}</ion-card-title>
                 <p>{{ order.notes }}</p>
-                <p><strong>Tarih:</strong> {{ new Date(order.date).toLocaleString() }}</p>
+                <p class="order-time">{{ new Date(order.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) }}</p>
               </ion-card-content>
             </ion-item>
 
             <!-- Sağa veya sola kaydırılınca çıkan seçenekler -->
             <ion-item-options side="start">
-              <ion-item-option color="primary" @click="restoreOrder(order.id)">
-                <ion-icon :icon="arrow-back" slot="icon-only"></ion-icon>
-                Geri Al
+              <ion-item-option color="danger" @click="cancelOrder(order.id)">
+                <ion-icon :icon="close" slot="icon-only"></ion-icon>
+                Sil
               </ion-item-option>
             </ion-item-options>
 
@@ -45,7 +45,7 @@
 
 <script>
 import { useOrderStore } from '../store/orders';
-import { arrowBack } from 'ionicons/icons';
+import { arrowBack, close } from 'ionicons/icons';
 
 
 export default {
@@ -67,7 +67,8 @@ export default {
     return {
       completedOrders: orderStore.completedOrders,
       restoreOrder,
-      arrowBack
+      arrowBack,
+      close
     };
   }
 };
