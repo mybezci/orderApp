@@ -9,31 +9,29 @@
     </ion-header>
 
     <ion-content>
-      <div >
         <ion-card style="margin-bottom: 1rem;">
  
-      <ion-item>
-        <ion-label>Username</ion-label>
-        <ion-input slot="end" v-model="user.username"></ion-input>
-      </ion-item> 
-      <ion-item>
-        <ion-label>User number</ion-label>
-        <ion-input slot="end" v-model="user.usernumber"></ion-input>
-      </ion-item> 
-      <ion-item>
-        <ion-label>Bildirimler</ion-label>
-        <ion-toggle slot="end" v-model="notificationsEnabled"></ion-toggle>
-      </ion-item> 
-      <ion-item>
-        <ion-label>Bildirimler</ion-label>
-        <ion-toggle slot="end" v-model="notificationsEnabled"></ion-toggle>
-      </ion-item> 
-      <ion-item>
-        <ion-label>Bildirimler</ion-label>
-        <ion-toggle slot="end" v-model="notificationsEnabled"></ion-toggle>
-      </ion-item>
-    </ion-card>
-  </div>
+          <ion-item>
+            <ion-label>Username</ion-label>
+            <ion-input slot="end" v-model="user.username"></ion-input>
+          </ion-item> 
+          <ion-item>
+            <ion-label>User number</ion-label>
+            <ion-input slot="end" v-model="user.usernumber"></ion-input>
+          </ion-item> 
+          <ion-item>
+            <ion-label>Bildirimler</ion-label>
+            <ion-toggle slot="end" v-model="notificationsEnabled"></ion-toggle>
+          </ion-item> 
+          <ion-item>
+            <ion-label>Bildirimler</ion-label>
+            <ion-toggle slot="end" v-model="notificationsEnabled"></ion-toggle>
+          </ion-item> 
+          <ion-item>
+            <ion-label>Bildirimler</ion-label>
+            <ion-toggle slot="end" v-model="notificationsEnabled"></ion-toggle>
+          </ion-item>
+        </ion-card>
     </ion-content>
   </ion-page>
 
