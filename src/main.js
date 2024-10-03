@@ -11,8 +11,10 @@ import {
   IonCardContent,
   IonCardHeader,
   IonCardTitle,
+  IonCol,
   IonContent,
   IonFooter,
+  IonGrid,
   IonHeader, 
   IonIcon,
   IonInput,
@@ -23,6 +25,7 @@ import {
   IonLabel,
   IonModal, 
   IonPage,
+  IonRow,
   IonTextarea, 
   IonTitle, 
   IonToggle,
@@ -58,6 +61,11 @@ import '@ionic/vue/css/palettes/dark.system.css';
 /* Theme variables */
 import './theme/variables.css';
 
+import PrimeVue from 'primevue/config';
+import DataTable from "primevue/datatable"
+import Column from "primevue/column"
+
+
 const app = createApp(App)
 
 
@@ -67,8 +75,10 @@ app.component('IonCard', IonCard);
 app.component('IonCardContent', IonCardContent);
 app.component('IonCardHeader', IonCardHeader);
 app.component('IonCardTitle', IonCardTitle);
+app.component('IonCol', IonCol);
 app.component('IonContent', IonContent);
 app.component('IonFooter', IonFooter);
+app.component('IonGrid', IonGrid);
 app.component('IonHeader', IonHeader);
 app.component('IonIcon', IonIcon);
 app.component('IonInput', IonInput );
@@ -79,6 +89,7 @@ app.component('IonItemSliding', IonItemSliding);
 app.component('IonLabel', IonLabel);
 app.component('IonModal', IonModal);
 app.component('IonPage', IonPage);
+app.component('IonRow', IonRow);
 app.component('IonTextarea', IonTextarea);
 app.component('IonTitle', IonTitle);
 app.component('IonToggle', IonToggle);
@@ -89,6 +100,11 @@ app.component('IonToolbar', IonToolbar);
 app.use(IonicVue)
 app.use(createPinia())
 app.use(router)
+
+app.use(PrimeVue)
+app.component('DataTable', DataTable);
+app.component('Column', Column);
+
 
 router.isReady().then(() => {
   app.mount('#app');
