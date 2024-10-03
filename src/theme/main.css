@@ -94,3 +94,26 @@ body {
     color: var(--ion-toolbar-color); /* Araç çubuğu yazı rengi */
   }
   
+  /*History*/
+  .datatable-container {
+    padding: 1rem;
+  }
+  
+  .p-datatable .p-datatable-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .p-paginator .p-paginator-current {
+    margin-right: 1rem;
+  }
+  
+  .button-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .button-header ion-button {
+    font-size: 100px;
+  }
