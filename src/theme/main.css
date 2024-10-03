@@ -34,6 +34,8 @@ body {
     border: 1px solid var(--ion-item-border-color); /* Madde kenar rengi */
     border-radius: 5px; /* Köşe yuvarlama */
     border-left: 5px solid green; /* Sol tarafta yeşil border */
+    --inner-padding-start: 0px;  /* İçteki padding değerini sıfırlar */
+    --inner-padding-end: 0px; 
   }  
 
   .card-content {
@@ -42,6 +44,14 @@ body {
     display: flex;
     justify-content: space-between;
     width: 100%; /* Card content genişliği tam genişlik */
+    --padding-start: 0px;  /* CardContent padding değerini sıfırlar */
+    --padding-end: 0px;    /* CardContent padding değerini sıfırlar */
+  }
+
+  .custom-grid {
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Grid'in genişliği tam olsun */
   }
   
 

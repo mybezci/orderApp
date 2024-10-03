@@ -24,7 +24,7 @@
             <ion-item class="item-content" >
               <ion-card-content class="card-content">
 
-                <ion-grid>
+                <ion-grid  class="custom-grid">
                   <ion-row>
                     <ion-col size="10" class="active-left-col">
                       <ion-card-title>{{ order.name }}</ion-card-title>

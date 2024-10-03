@@ -32,3 +32,15 @@ http://ionicframework.com/docs/theming/ */
     --ion-item-border-color: #ccc; /* Madde kenar rengi */
   }
   
+
+  ion-item {
+    --padding-start: 0px;
+    --padding-end: 0px;
+  }
+  
+  ion-card-content {
+    --padding-start: 0px;
+    --padding-end: 0px;
+    --inner-padding: 0px;
+  }
+  
