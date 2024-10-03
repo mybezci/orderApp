@@ -26,14 +26,14 @@
 
                 <ion-grid>
                   <ion-row>
-                    <ion-col size="9">
+                    <ion-col size="10" class="active-left-col">
                       <ion-card-title>{{ order.name }}</ion-card-title>
                       <p>{{ order.details }}</p>
                       <p class="warning-text">{{ order.notes }}</p>
                     </ion-col>
 
                   <!-- Tamamlama Butonu ve Saat -->
-                    <ion-col size="3" class="ion-text-right">
+                    <ion-col size="2" class="active-right-col">
                       <p class="order-time">{{ new Date(order.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) }}</p>
                       <ion-button color="success" @click="completeOrder(order.id)" class="complete-button">
                         <ion-icon slot="start" :icon="checkmark" style="font-size: 24px; margin: 0;"></ion-icon>
