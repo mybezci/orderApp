@@ -1,0 +1,76 @@
+/* Temel Stil Ayarları */
+body {
+    background-color: var(--ion-color-background); /* Genel arka plan rengi */
+    color: var(--ion-color-text); /* Genel yazı rengi */
+  }
+  
+  /* Kart Stil Ayarları */
+  ion-card {
+    background-color: var(--ion-card-background); /* Kart arka plan rengi */
+    border-radius: var(--ion-card-border-radius); /* Kart köşe yuvarlama */
+  }
+  
+  /* Buton Stilleri */
+  .complete-button {
+    height: 50px;
+    width: 50px;
+    background-color: var(--ion-button-background); /* Buton arka plan rengi */
+    color: var(--ion-button-text-color); /* Buton yazı rengi */
+  }
+  
+  /* Uyarı Metni Stili */
+  .warning-text {
+    font-size: 14px;
+    color: var(--ion-color-warning); /* Uyarı rengi */
+  }
+  
+  /* Madde Stilleri */
+  .item-content {
+    margin: 0; 
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Card content genişliği tam genişlik */
+    border: 1px solid var(--ion-item-border-color); /* Madde kenar rengi */
+    border-radius: 5px; /* Köşe yuvarlama */
+    border-left: 5px solid green; /* Sol tarafta yeşil border */
+  }  
+
+  .card-content {
+    margin: 0; 
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Card content genişliği tam genişlik */
+  }
+  
+  .left-section {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .right-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .order-time {
+    font-weight: bold;
+  }
+  
+  /* Sliding Item Styles */
+  ion-item-sliding {
+    --ion-item-sliding-side-margin: 0;
+  }
+  
+  ion-item-options {
+    width: auto;
+  }
+  
+  /* Başlık Stili */
+  ion-toolbar {
+    background-color: var(--ion-toolbar-background); /* Araç çubuğu arka plan rengi */
+    color: var(--ion-toolbar-color); /* Araç çubuğu yazı rengi */
+  }
+  

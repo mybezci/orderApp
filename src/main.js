@@ -60,6 +60,8 @@ import '@ionic/vue/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+/* Main CSS */
+import './theme/main.css';  // main.css dosyanızı buraya ekleyin
 
 import PrimeVue from 'primevue/config';
 import DataTable from "primevue/datatable"

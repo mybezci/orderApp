@@ -1,2 +1,34 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
+
+/* Genel Renk Değişkenleri */
+:root {
+    --ion-color-primary: #3880ff;  /* Ana renk */
+    --ion-color-secondary: #3dc2ff;  /* İkincil renk */
+    --ion-color-tertiary: #7044ff;  /* Üçüncül renk */
+  
+    /* Arka Plan ve Yazı Renkleri */
+    --ion-color-background: #ffffff;  /* Arka plan rengi */
+    --ion-color-text: #222428;  /* Yazı rengi */
+    --ion-color-warning: red; /* Uyarı rengi */
+  }
+  
+  /* Buton Stilleri */
+  :root {
+    --ion-button-background: var(--ion-color-primary);  /* Buton arka plan rengi */
+    --ion-button-text-color: #ffffff;  /* Buton yazı rengi */
+  }
+  
+  /* Başlık Stilleri */
+  :root {
+    --ion-toolbar-background: var(--ion-color-primary);  /* Araç çubuğu arka plan rengi */
+    --ion-toolbar-color: #ffffff;  /* Araç çubuğu yazı rengi */
+  }
+  
+  /* Uygulama Genel Stilleri */
+  :root {
+    --ion-card-background: #f9f9f9;  /* Kart arka plan rengi */
+    --ion-card-border-radius: 5px;  /* Kart köşe yuvarlama */
+    --ion-item-border-color: #ccc; /* Madde kenar rengi */
+  }
+  
