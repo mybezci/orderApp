@@ -8,19 +8,21 @@
         </ion-title>
       </ion-toolbar>
     </ion-header>
+
+
     <ion-content>
-      <div v-if="completedOrders.length > 0">
-        <ion-card v-for="order in completedOrders" :key="order.id" style="margin-bottom: 1rem;">
+       
+       
+        <ion-card v-if="completedOrders.length > 0" v-for="order in completedOrders" :key="order.id" >
           <ion-item-sliding>
-            <ion-item>
-              <ion-card-content>
+            <ion-item >
+              <ion-card-content class="card-content">
                 <ion-card-title>{{ order.name }}</ion-card-title>
                 <p>{{ order.notes }}</p>
                 <p class="order-time">{{ new Date(order.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) }}</p>
               </ion-card-content>
             </ion-item>
 
-            <!-- Sağa veya sola kaydırılınca çıkan seçenekler -->
             <ion-item-options side="start">
               <ion-item-option color="danger" @click="cancelOrder(order.id)">
                 <ion-icon :icon="close" slot="icon-only"></ion-icon>
@@ -37,7 +39,6 @@
           </ion-item-sliding>
 
         </ion-card>
-      </div>
     </ion-content>
   </ion-page>
 
@@ -74,8 +75,4 @@ export default {
 };
 </script>
 
-<style scoped>
-ion-card {
-  margin-bottom: 1rem;
-}
-</style>
+

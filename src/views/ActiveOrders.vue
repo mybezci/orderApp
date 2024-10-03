@@ -15,35 +15,38 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content class="ion-padding" >
-      <div v-if="orders.length > 0" >
 
-        <ion-item-sliding v-for="order in orders" :key="order.id" >
-          <ion-item class="item-content">
-            <ion-card-content class="card-content">
-              <div class="left-section">
-                <ion-card-title>{{ order.name }}</ion-card-title>
-                <p>{{ order.notes }}</p>
-                <p class="warning-text">{{ order.details }}</p>
-              </div>
+    <ion-content >
 
-              <div class="right-section">
-                <p class="order-time">{{ new Date(order.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) }}</p>
-                <ion-button color="success" @click="completeOrder(order.id)" class="complete-button">
-                  <ion-icon slot="start" :icon="checkmark" style="font-size: 24px; margin: 0;"></ion-icon>
-                </ion-button>
-              </div>
-            </ion-card-content>
-          </ion-item>
+        <ion-card  v-if="orders.length > 0" v-for="order in orders" :key="order.id" >
+          <ion-item-sliding  >
 
-          <ion-item-options side="end">
-            <ion-item-option color="danger" expandable @click="cancelOrder(order.id)">
-              <ion-icon slot="start" :icon="close" style="font-size: 24px;"></ion-icon>
-              İptal
-            </ion-item-option>
-          </ion-item-options>
-        </ion-item-sliding>
-      </div>
+            <ion-item class="item-content" >
+              <ion-card-content class="card-content">
+               <div class="left-section">
+                  <ion-card-title>{{ order.name }}</ion-card-title>
+                  <p >{{ order.details }}</p>
+                  <p class="warning-text">{{ order.notes }}</p>
+                </div>
+
+                <div class="right-section">
+                  <p class="order-time">{{ new Date(order.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) }}</p>
+                  <ion-button color="success" @click="completeOrder(order.id)" class="complete-button">
+                    <ion-icon slot="start" :icon="checkmark" style="font-size: 24px; margin: 0;"></ion-icon>
+                  </ion-button>
+                </div>
+              </ion-card-content>
+            </ion-item>
+
+            <ion-item-options side="end">
+              <ion-item-option color="danger" expandable @click="cancelOrder(order.id)">
+                <ion-icon slot="start" :icon="close" style="font-size: 24px;"></ion-icon>
+                İptal
+              </ion-item-option>
+            </ion-item-options>
+
+          </ion-item-sliding>
+        </ion-card>
 
        <!-- FormAddOrder Component -->
       <FormAddOrder :isModalOpen="isModalOpen" @closeForm="closeModal" @addOrder="addNewOrder" />
@@ -95,14 +98,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<!-- <style scoped>
 
 .item-content {
   margin: 0; 
   padding: 0;
-}
-
-.card-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -110,6 +110,15 @@ export default {
   border: 1px solid #ccc; /* İnce bir gri border */
   border-radius: 5px; /* Köşe yuvarlama */
   border-left: 5px solid green; /* Sol tarafta yeşil border */
+}
+
+.card-content {
+  margin: 0; 
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Card content genişliği tam genişlik */
 }
 
 .left-section {
@@ -145,4 +154,4 @@ ion-item-options {
   width: auto;
 }
 
-</style>
+</style> -->
