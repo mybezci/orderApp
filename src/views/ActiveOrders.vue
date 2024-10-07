@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 import { useOrderStore } from '../store/orders';
 import { add, close, checkmark } from 'ionicons/icons';
@@ -78,6 +78,18 @@ export default {
   },
   setup() {
     const orderStore = useOrderStore();
+
+    const orders = ref([]);
+
+    const loadOrders = async () => {
+      orders.value = orderStore.currentOrders;
+    };
+
+    onMounted(async () => {
+      await loadOrders();
+    });
+
+
     const isModalOpen = ref(false);
     const presentModal = () => {
       isModalOpen.value = true;
@@ -91,14 +103,18 @@ export default {
       orderStore.currentOrders.push(order);
     };
 
+    const cancelOrder = (id) => {
+      orderStore.cancelOrder(id);  // Store'daki cancelOrder fonksiyonunu çağırın
+    };
 
     return {
-      orders: orderStore.currentOrders,
+      orders,
       completeOrder: orderStore.completeOrder.bind(orderStore),
       presentModal,
       closeModal,
       isModalOpen,
       addNewOrder,
+      cancelOrder,
       add,
       close,
       checkmark
