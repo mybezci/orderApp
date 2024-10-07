@@ -11,8 +11,6 @@
 
 
     <ion-content>
-       
-       
         <ion-card v-if="completedOrders.length > 0" v-for="order in completedOrders" :key="order.id" >
           <ion-item-sliding>
             <ion-item >
@@ -24,7 +22,7 @@
             </ion-item>
 
             <ion-item-options side="start">
-              <ion-item-option color="danger" @click="cancelOrder(order.id)">
+              <ion-item-option color="danger" @click="moveToHistory(order.id)">
                 <ion-icon :icon="close" slot="icon-only"></ion-icon>
                 Sil
               </ion-item-option>
@@ -45,6 +43,7 @@
 </template>
 
 <script>
+import { onMounted, ref } from 'vue';
 import { useOrderStore } from '../store/orders';
 import { arrowBack, close } from 'ionicons/icons';
 
@@ -53,21 +52,33 @@ export default {
   setup() {
     const orderStore = useOrderStore();
 
+    const completedOrders = ref([]);
+
+    const loadCompletedOrders = async () => {
+      completedOrders.value = orderStore.completedOrders;
+    };
+
+    onMounted(async () => {
+      await loadCompletedOrders(); 
+    });
+
     const restoreOrder = (orderId) => {
-      // Siparişi tamamlanan siparişlerden geri al ve aktif siparişlere ekle
       const orderIndex = orderStore.completedOrders.findIndex(order => order.id === orderId);
       if (orderIndex !== -1) {
         const order = orderStore.completedOrders[orderIndex];
-        // Siparişi aktif siparişlere ekle
         orderStore.currentOrders.push(order);
-        // Tamamlanmış siparişlerden çıkar
         orderStore.completedOrders.splice(orderIndex, 1);
       }
     };
 
+    const moveToHistory = (orderId) => {
+      orderStore.moveToHistory(orderId); 
+    };
+
     return {
-      completedOrders: orderStore.completedOrders,
+      completedOrders,
       restoreOrder,
+      moveToHistory,
       arrowBack,
       close
     };
