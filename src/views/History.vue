@@ -13,8 +13,8 @@
 
     <ion-content :fullscreen="true">
 
-      <div class="datatable-container">
-        <DataTable :value="orders" :filters="filters" :sortField="sortField" :sortOrder="sortOrder" class="p-datatable-gridlines">
+      <div class="datatable-container" v-if="historyOrders.length > 0">
+        <DataTable :value="historyOrders" :filters="filters" :sortField="sortField" :sortOrder="sortOrder" class="p-datatable-gridlines">
           <Column field="id" header="No" sortable style="width: 10%" />
           <Column field="name" header="Order Name" sortable filter filterPlaceholder="Search by name" 
             filterMatchMode="contains"
@@ -26,6 +26,9 @@
             style="width: 45%"/>
         </DataTable>
       </div>
+      <div v-else>
+        <p>No history orders found.</p>
+      </div>
     </ion-content>
   </ion-page>
 </template>
@@ -33,20 +36,19 @@
 <script>
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import { download } from 'ionicons/icons';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import * as XLSX from 'xlsx';
+import { useOrderStore } from '../store/orders';
+
 
 export default {
   setup() {
 
-    const orders = ref([
-      { id: 1, name: 'Order A', date: '2024-09-30' },
-      { id: 2, name: 'Order B', date: '2024-10-01' },
-      { id: 3, name: 'Order C', date: '2024-10-02' },
-      { id: 4, name: 'Order D', date: '2024-10-03' },
-      { id: 5, name: 'Order E', date: '2024-10-04' },
-      // Daha fazla sipariş eklenebilir
-    ]);
+    const orderStore = useOrderStore();
+
+    const historyOrders = ref([]);
+
+
 
     const filters = ref({
       name: { value: null, matchMode: 'contains' },
@@ -55,6 +57,17 @@ export default {
 
     const sortField = ref(null);
     const sortOrder = ref(null);
+
+
+    const loadHistoryOrders = async () => {
+      historyOrders.value = orderStore.historyOrders; // varsayılan bir API veya methodu çağırarak alınabilir
+    };
+
+    onMounted(async() => {
+      await loadHistoryOrders();
+
+    });
+
 
 
     // Function to export the data to Excel
@@ -70,9 +83,11 @@ export default {
       XLSX.writeFile(wb, 'Completed_Orders.xlsx');
 
     }
+    
+
 
     return {
-        orders,
+        historyOrders,
         filters,
         sortField,
         sortOrder,
