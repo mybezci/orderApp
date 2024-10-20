@@ -28,8 +28,8 @@
                   <ion-row>
                     <ion-col size="10" class="active-left-col">
                       <ion-card-title>{{ order.name }}</ion-card-title>
-                      <p>{{ order.details }}</p>
-                      <p class="warning-text">{{ order.notes }}</p>
+                      <p>{{ order.detail }}</p>
+                      <p class="warning-text">{{ order.note }}</p>
                     </ion-col>
 
                   <!-- Tamamlama Butonu ve Saat -->
@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 
 import { useOrderStore } from '../store/orders';
 import { add, close, checkmark } from 'ionicons/icons';
@@ -79,11 +79,16 @@ export default {
   setup() {
     const orderStore = useOrderStore();
 
-    const orders = ref([]);
+    //const orders = ref([]);
+    // Use computed to track orders from the store
+    const orders = computed(() => orderStore.currentOrders);
 
-    const loadOrders = async () => {
-      orders.value = orderStore.currentOrders;
+    const loadOrders = async () => {    
+      //orders.value = orderStore.currentOrders;
+      await orderStore.fetchOrders();  // Fetch orders from Supabase on mount
+
     };
+
 
     onMounted(async () => {
       await loadOrders();
@@ -99,13 +104,14 @@ export default {
       isModalOpen.value = false;
     };
 
-    const addNewOrder = (order) => {
-      orderStore.currentOrders.push(order);
+    const addNewOrder = async(order) => {
+      await orderStore.addOrderToSupabase(order);  // Add new order to Supabase      
     };
 
-    const cancelOrder = (id) => {
-      orderStore.cancelOrder(id);  // Store'daki cancelOrder fonksiyonunu çağırın
+    const cancelOrder = async (id) => {
+      await orderStore.cancelOrder(id);  // Cancel order in Supabase
     };
+
 
     return {
       orders,

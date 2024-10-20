@@ -14,10 +14,10 @@
         <ion-textarea class="custom-textarea" placeholder="Siparis" v-model="newOrder.name" @input="validateOrder" required></ion-textarea>
       </ion-item>
       <ion-item>
-        <ion-textarea class="custom-textarea" placeholder="Nereye" v-model="newOrder.details"></ion-textarea>
+        <ion-textarea class="custom-textarea" placeholder="Nereye" v-model="newOrder.detail"></ion-textarea>
       </ion-item>
       <ion-item>
-        <ion-textarea class="custom-textarea" placeholder="Notlar" v-model="newOrder.notes"></ion-textarea>
+        <ion-textarea class="custom-textarea" placeholder="Notlar" v-model="newOrder.note"></ion-textarea>
       </ion-item>
 
       <ion-button expand="full" @click="addNewOrder" :disabled="!canAddOrder">Ekle</ion-button>
@@ -39,22 +39,23 @@ export default {
   setup(props, { emit }) {
     const newOrder = ref({
       name: '',
-      details: '',
-      notes: '',
-      date: null
+      detail: '',
+      note: '',
+      date: null,
+      status: 'active'
     });
     const canAddOrder = ref(false);
 
     // Modal kapatıldığında formu sıfırla
     const closeModal = () => {
       emit('closeForm');
-      newOrder.value = { name: '', details: '', notes: '', date: null }; // Formu temizle
+      newOrder.value = { name: '', details: '', notes: '', date: null, status: 'active' }; // Formu temizle
       canAddOrder.value = false;
     };
 
     // Sipariş bilgilerini kontrol et
     const validateOrder = () => {
-      canAddOrder.value = newOrder.value.name.length > 5;
+      canAddOrder.value = newOrder.value.name.length > 4;
     };
 
     // Yeni siparişi ekle

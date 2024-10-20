@@ -19,11 +19,15 @@
           <Column field="name" header="Order Name" sortable filter filterPlaceholder="Search by name" 
             filterMatchMode="contains"
             filterMenuStyle="width: 100%"
-            style="width: 45%"/>
+            style="width: 30%"/>
+          <Column field="detail" header="Detail" sortable filter filterPlaceholder="Search by name" 
+            filterMatchMode="contains"
+            filterMenuStyle="width: 100%"
+            style="width: 30%"/>
           <Column field="date" header="Date" sortable filter filterPlaceholder="Search by date" 
             filterMatchMode="contains"
             filterMenuStyle="width: 100%"
-            style="width: 45%"/>
+            style="width: 30%"/>
         </DataTable>
       </div>
       <div v-else>

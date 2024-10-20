@@ -16,7 +16,7 @@
             <ion-item >
               <ion-card-content class="card-content">
                 <ion-card-title>{{ order.name }}</ion-card-title>
-                <p>{{ order.notes }}</p>
+                <p>{{ order.note }}</p>
                 <p class="order-time">{{ new Date(order.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) }}</p>
               </ion-card-content>
             </ion-item>
